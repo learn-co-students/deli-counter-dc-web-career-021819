@@ -1,14 +1,14 @@
 katz_deli = []
 
 def line (katz_deli)
-  if katz_deli.length == 0
+  if katz_deli.empty?
     puts "The line is currently empty."
   else 
-    string = "The line is currently:"
-    for place_in_line in 1..katz_deli.length do
-      string = string + " #{place_in_line.to_s}. #{katz_deli.shift}"
+    current_line = "The line is currently:"
+    katz_deli.each.with_index(1) do |person, i|
+      current_line << " #{i}. #{person}"
     end
-    puts string
+    puts current_line
   end
 end
 
@@ -18,6 +18,6 @@ def take_a_number (katz_deli, persons_name)
 end
 
 def now_serving (katz_deli)
-  puts katz_deli.length == 0 ? "There is nobody waiting to be served!" : "Currently serving #{katz_deli.shift}."
+  puts katz_deli.empty? ? "There is nobody waiting to be served!":"Currently serving #{katz_deli.shift}."
 end
 
